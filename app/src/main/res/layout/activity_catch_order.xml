@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+<include layout="@layout/include_toolbar"
+    android:id="@+id/include2" />
+
+    <TextView
+        android:textSize="22sp"
+        android:padding="8dp"
+        android:layout_below="@+id/include2"
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="今日运营数据" />
+    <View
+        android:layout_below="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"
+        android:id="@+id/view" />
+    <include layout="@layout/include_usercenter_orders"
+        />
+
+</RelativeLayout>

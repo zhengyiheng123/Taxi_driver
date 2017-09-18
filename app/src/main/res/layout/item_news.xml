@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:padding="16dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_withdraw_text"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="支付消息"
+
+        />
+    <TextView
+        android:id="@+id/tv_time"
+        android:textSize="14sp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2017-02-09 14:09"
+        />
+    <TextView
+        android:id="@+id/tv_details"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/tv_withdraw_text"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收到车费40.00元，来自手机尾号1786的乘客支付，您可以到我的余额里查看"
+        android:maxEms="30"
+        android:singleLine="true"
+        android:ellipsize="end"
+        />
+</RelativeLayout>

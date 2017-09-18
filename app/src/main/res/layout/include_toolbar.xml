@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/fl_toolbar"
+    android:background="@color/tool_bar_color"
+    android:layout_height="@dimen/actionBarSize">
+    <ImageView
+        android:paddingRight="24dp"
+        android:id="@+id/iv_back"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/actionBarSize"
+        android:src="@mipmap/icon_zhongcan_back"
+        />
+    <TextView
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="会儿团队"
+        android:id="@+id/tv_title"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:visibility="gone"
+        android:layout_marginRight="8dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:id="@+id/tv_extra_text"
+        />
+</FrameLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+    <include layout="@layout/include_toolbar"/>
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="验证码将发送到185****7657"
+        />
+    <RelativeLayout
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize"
+        android:background="@drawable/shape_border_grey">
+
+        <TextView
+            android:id="@+id/tv_re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="验证码：" />
+
+        <EditText
+            android:layout_toRightOf="@+id/tv_re"
+            android:inputType="phone"
+            android:id="@+id/et_reg_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入验证码"
+            android:paddingLeft="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@color/tool_bar_color"
+            android:gravity="center"
+            android:text="验证码"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <Button
+        android:text="下一步"
+        android:textSize="16sp"
+        android:id="@+id/btn_login"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="@drawable/bg_login"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputHeight" />
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="如果手机号码已经停用或其他原因，无法接收短信验证码，可进入【更多】在进入【客服中心】去【联系客服】进行修改"
+        />
+</LinearLayout>

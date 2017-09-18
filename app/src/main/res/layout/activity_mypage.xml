@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+    <include layout="@layout/include_toolbar"/>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <cinyida.com.car_driver.widget.CircleImageView
+            android:layout_width="64dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="64dp"
+            android:id="@+id/circle_head"
+            android:src="@drawable/boy_3" />
+
+        <TextView
+            android:textColor="@color/tool_bar_color"
+            android:id="@+id/tv_name"
+            android:layout_toRightOf="@+id/circle_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--" />
+
+        <TextView
+            android:id="@+id/company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:layout_below="@+id/tv_name"
+            android:layout_toRightOf="@+id/circle_head"
+            android:layout_toEndOf="@+id/circle_head" />
+        <TextView
+            android:id="@+id/phonenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:layout_below="@+id/company"
+            android:layout_toRightOf="@+id/circle_head"
+            android:layout_toEndOf="@+id/circle_head" />
+        <RatingBar
+            android:layout_marginTop="8dp"
+            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            android:layout_toRightOf="@+id/circle_head"
+            android:layout_below="@+id/phonenum"
+            android:rating="0"
+            android:max="5"
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_color"
+        />
+<LinearLayout
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务人数"
+            />
+        <TextView
+            android:id="@+id/tv_allorder"
+            android:textColor="@color/tool_bar_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            />
+    </LinearLayout>
+    <View
+        android:layout_margin="8dp"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="@color/line_color"
+        />
+    <LinearLayout
+
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="司机排名"
+            />
+        <TextView
+            android:id="@+id/tv_rank"
+            android:textColor="@color/tool_bar_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            />
+    </LinearLayout>
+</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="评价标签"
+        android:padding="10dp"
+        android:background="@color/white"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"
+        />
+        <GridView
+            android:background="@color/white"
+            android:horizontalSpacing="8dp"
+            android:verticalSpacing="8dp"
+            android:padding="8dp"
+            android:gravity="center"
+            android:numColumns="3"
+            android:id="@+id/gd_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/bg_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<include layout="@layout/include_toolbar"/>
+<ImageView
+    android:id="@+id/iv_myweixin"
+    android:layout_marginTop="32dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="280dp"
+    android:layout_height="384dp"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扫一扫 付车费"
+        android:textColor="@color/tool_bar_color"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="快用微信或支付宝“扫一扫”来支付车费吧"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        />
+</LinearLayout>

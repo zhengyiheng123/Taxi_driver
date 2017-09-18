@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_map"
+    android:background="@drawable/inset_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.amap.api.maps.MapView
+        android:layout_marginBottom="@dimen/actionBarSize"
+        android:id="@+id/mapview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/tv_see_map"
+        android:gravity="center"
+        android:background="@drawable/shape_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize"
+        android:text="关闭地图"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

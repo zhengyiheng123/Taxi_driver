@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="50dp">
+    <!--<TextView-->
+
+
+
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="抢单数"
+            />
+        <TextView
+            android:id="@+id/tv_catch_num"
+            android:textColor="@color/tool_bar_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            />
+    </LinearLayout>
+    <View
+        android:layout_margin="8dp"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="@color/line_color"
+        />
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="好评率"
+            />
+        <TextView
+            android:id="@+id/tv_goodrate"
+            android:textColor="@color/tool_bar_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            />
+    </LinearLayout>
+    <View
+        android:layout_margin="8dp"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="@color/line_color"
+        />
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="排名"
+            />
+        <TextView
+            android:id="@+id/tv_rank"
+            android:textColor="@color/tool_bar_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            />
+    </LinearLayout>
+</LinearLayout>

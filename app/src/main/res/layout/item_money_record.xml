@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="match_parent">
+<TextView
+    android:id="@+id/tv_withdraw_text"
+    android:textSize="14sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="提现"
+    />
+    <TextView
+        android:id="@+id/tv_yuan"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-40元"
+        android:textColor="@color/tool_bar_color"
+        android:textSize="14sp"
+        android:layout_alignParentTop="true" />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/tv_withdraw_text"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2017-02-09 14:09"
+
+        />
+    <TextView
+        android:id="@+id/tv_banknum"
+        android:layout_marginTop="2dp"
+        android:textSize="12sp"
+        android:layout_below="@+id/tv_withdraw_text"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6261****9999"
+        />
+</RelativeLayout>

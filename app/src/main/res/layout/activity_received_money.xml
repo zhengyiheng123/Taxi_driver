@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_color"
+    android:baselineAligned="false">
+<include layout="@layout/include_toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_amber_50"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_id_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/material_orange_50"
+            android:text="出租车余额" />
+
+        <TextView
+            android:id="@+id/tv_id_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_id_name"
+            android:layout_marginTop="8dp"
+            android:background="@color/material_orange_50"
+            android:text="----元"
+            android:textColor="@color/tool_bar_color"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_withdraw"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_id_name"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_withdraw"
+            android:text="提现"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_money_record"
+        android:scrollbars="none"
+        android:divider="@color/line_color"
+        android:dividerHeight="0.5dp"
+        />
+</LinearLayout>

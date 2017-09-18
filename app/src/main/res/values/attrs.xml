@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- CircleImageView -->
+    <declare-styleable name="CircleImageView">
+    <attr name="border_width" format="dimension" />
+    <attr name="border_color" format="color" /></declare-styleable>
+
+    <attr name="doAnim" format="boolean" />
+    <declare-styleable name="home_button">
+        <attr name="doAnim" />
+    </declare-styleable>
+
+    <declare-styleable name="TimeCountDownView">
+        <attr name="countDownTime"  format="float"/>
+        <attr name="count_down_format"  format="string"/>
+    </declare-styleable>
+</resources>

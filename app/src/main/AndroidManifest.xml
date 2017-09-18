@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cinyida.com.car_driver">
+
+    <!-- Required -->
+    <permission
+        android:name="cinyida.com.car_driver.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="cinyida.com.car_driver.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
+    <!--用于申请获取蓝牙信息进行室内定位-->
+    <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+    <!-- 往sdcard中写入数据的权限 -->
+    <application
+        android:name=".app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+<!--高德地图-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="3a26835b79718b1f2b93354f8af04dd7" />
+
+        <activity android:name=".ui.activity.SplashActivity"
+            android:theme="@style/ThemeSplash"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.LoginActivity"
+            android:launchMode="singleTask"
+            />
+        <!--选择图片-->
+        <activity
+            android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"
+            android:theme="@style/ImagePickerThemeFullScreen"/>
+        <!--个人中心-->
+        <activity android:name=".ui.activity.UserCenterActivity"
+            />
+        <!--司机主页-->
+        <activity android:name=".ui.activity.MyPageActivity"/>
+        <!--忘记密码-->
+        <activity android:name=".ui.activity.ForgetPasswordActivity"/>
+        <!--提现页面-->
+        <activity android:name=".ui.activity.Received_Money_Activity"/>
+        <!--帮助页面-->
+        <activity android:name=".ui.activity.HelpActivity"/>
+        <!--提现页面-->
+        <activity android:name=".ui.activity.WithDrawActivity"/>
+        <!--注册页面-->
+        <activity android:name=".ui.activity.RegisterActivity"
+            android:launchMode="singleTop"
+            />
+        <!--更多-->
+        <activity android:name=".ui.activity.MoreActivity"></activity>
+        <!--收车费-->
+        <activity android:name=".ui.activity.Receive_Fee_Activity"/>
+        <!--设置-->
+        <activity android:name=".ui.activity.SettingActivity"/>
+        <!--客服-->
+        <activity android:name=".ui.activity.ServiceActivity"/>
+        <!--消息-->
+        <activity android:name=".ui.activity.NewsActivity"/>
+        <!--高德导航相关-->
+        <activity android:name=".navigation.CalculateRouteActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".navigation.RouteNaviActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".navigation.StrategyChooseActivity"
+            android:screenOrientation="portrait"
+            />
+        <!--高德导航相关-->
+        <activity android:name=".ui.activity.Certification_Setting_Activity"
+            android:windowSoftInputMode="stateHidden"
+            />
+        <service android:name="com.amap.api.location.APSService"></service>
+
+        <!--银行卡-->
+        <activity android:name=".ui.activity.BankListActivity"/>
+        <!--添加银行卡-->
+        <activity android:name=".ui.activity.Activity_Add_BankCard"/>
+        <!--重置密码-->
+        <activity android:name=".ui.activity.Reset_Password_Activity"/>
+        <!--修改手机号-->
+        <activity android:name=".ui.activity.ChangeMobile_Activity"/>
+        <!--意见反馈-->
+        <activity android:name=".ui.activity.SuggestionActivity"/>
+        <!--路况-->
+        <activity android:name=".ui.activity.TrafficMapActivity"/>
+        <!--接单参数设置界面-->
+        <activity android:name=".ui.activity.Activity_Catch_Setting"/>
+        <!--目的地订单设置-->
+        <activity android:name=".ui.activity.Target_Address_Activity"/>
+        <!--关于我们-->
+        <activity android:name=".ui.activity.Activity_About_Us"/>
+        <!--联系我们-->
+        <activity android:name=".ui.activity.ConnectUs_Activity"/>
+        <!--帮助详情-->
+        <activity android:name=".ui.activity.Activity_Problem_Details"/>
+        <!--信用列表-->
+        <activity android:name=".ui.activity.XinyongjinRecordActivity"/>
+        <!--车单记录-->
+        <activity android:name=".ui.activity.Car_Order_Records"/>
+        <!--车单历史记录-->
+        <activity android:name=".ui.activity.Orders_History_Activity"/>
+        <activity android:name=".ui.activity.ToCatchCustom_Activity" />
+        <!--接乘客界面-->
+        <activity android:name=".ui.activity.Receive_Money_Activity"/>
+        <!--获取验证码页面-->
+        <activity android:name=".ui.activity.Activity_getRegCode"/>
+        <!--设置登录密码-->
+        <activity android:name=".ui.activity.Activity_SetPassword"/>
+        <activity android:name=".ui.activity.ChoosePhoto"/>
+
+        <!--取消订单-->
+        <activity android:name=".ui.activity.Activity_Cancel"/>
+
+        <!-- Rich push 核心功能 since 2.0.6-->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:theme="@style/MyDialogStyle"
+            android:exported="false">
+        </activity>
+
+        <!-- Required SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="cinyida.com.car_driver" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.IntroduceActivity" />
+
+
+        <!-- Required SDK 核心功能-->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:process=":mult"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+                <category android:name="cinyida.com.car_driver" />
+            </intent-filter>
+
+        </service>
+
+        <!-- Required SDK核心功能-->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />   <!--Required  显示通知栏 -->
+                <category android:name="cinyida.com.car_driver" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能-->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" android:exported="false"/>
+
+        <!-- User defined.  For test only  用户自定义的广播接收器-->
+        <receiver
+            android:name=".jpush.MyReceiver"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="cinyida.com.car_driver" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required  . Enable it you can get statistics data with channel -->
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="1e1e488c76a4d7ca08a97cea" /> <!--  </>值来自开发者平台取得的AppKey-->
+    </application>
+
+</manifest>

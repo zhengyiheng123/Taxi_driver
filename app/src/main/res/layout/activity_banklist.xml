@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+<include layout="@layout/include_toolbar"/>
+    <RelativeLayout
+        android:id="@+id/rl_bg"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_bank_bg"
+        android:padding="8dp">
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:id="@+id/bank_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_alignBottom="@+id/bank_name"
+            android:layout_toRightOf="@+id/bank_name"
+            android:id="@+id/card_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="--"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/card_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bank_name"
+            android:layout_alignParentBottom="true"
+            android:text="-------"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <Button
+        android:visibility="gone"
+        android:text="添加银行卡"
+        android:textSize="16sp"
+        android:id="@+id/btn_login"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="@drawable/bg_login"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputHeight" />
+</LinearLayout>
