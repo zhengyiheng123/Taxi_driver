@@ -2,6 +2,8 @@ package cinyida.com.car_driver.ui.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -45,6 +47,7 @@ import cinyida.com.car_driver.utils.ToastUtils;
 import cn.qqtheme.framework.picker.DatePicker;
 import cn.qqtheme.framework.picker.DateTimePicker;
 import cn.qqtheme.framework.picker.OptionPicker;
+import me.leefeng.promptlibrary.PromptDialog;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -236,7 +239,20 @@ public class Certification_Setting_Activity extends BaseActivity implements Cert
     public void showDialog() {
 
     }
-
+    //warnDialog
+    public void shoWarnDialoh(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(Certification_Setting_Activity.this);
+        builder.setTitle("提示");
+        builder.setMessage("您的司机身份正在审核中,暂不能使用任何功能！");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setCancelable(false);
+        builder.show();
+    }
     @Override
     public void dismissDialog() {
 
@@ -265,6 +281,9 @@ public class Certification_Setting_Activity extends BaseActivity implements Cert
         Glide.with(Certification_Setting_Activity.this).load(BaseApi.getBaseUrl()+"/"+bean.getPeoimg()).into(iv_personand_car);
         Glide.with(Certification_Setting_Activity.this).load(BaseApi.getBaseUrl()+"/"+bean.getCarimg()).into(iv_idcard_run);
         Glide.with(Certification_Setting_Activity.this).load(BaseApi.getBaseUrl()+"/"+bean.getWeixin()).into(iv_weixin_card);
+        if (bean.getState() == 1){
+            shoWarnDialoh();
+        }
     }
 
     @Override
@@ -281,6 +300,7 @@ public class Certification_Setting_Activity extends BaseActivity implements Cert
     //日期选择框
     private void showDatePickDialog(final View v) {
         DatePicker datePicker=new DatePicker(Certification_Setting_Activity.this, DateTimePicker.YEAR_MONTH_DAY);
+        datePicker.setRangeEnd(2030,1,1);
         datePicker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
             @Override
             public void onDatePicked(String year, String month, String day) {

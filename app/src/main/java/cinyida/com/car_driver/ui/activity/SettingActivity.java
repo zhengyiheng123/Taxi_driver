@@ -62,17 +62,17 @@ public class SettingActivity extends BaseActivity {
         ll_target= (LinearLayout) findViewById(R.id.ll_target);
         ll_about_us= (LinearLayout) findViewById(R.id.ll_about_us);
         ll_reset_call_us= (LinearLayout) findViewById(R.id.ll_reset_call_us);
-        tv_certified = (TextView) findViewById(R.id.tv_certified);
-        int state= (int) SharedPreferenceUtils.getParam(getApplicationContext(),"isCertified",0);
-        if (state == 0){
-            tv_certified.setText("未认证");
-        }else if (state == 1){
-            tv_certified.setText("审核中");
-        }else if (state ==2){
-            tv_certified.setText("已认证");
-        }else if (state == 3){
-            tv_certified.setText("禁用");
-        }
+//        tv_certified = (TextView) findViewById(R.id.tv_certified);
+//        int state= (int) SharedPreferenceUtils.getParam(getApplicationContext(),"isCertified",0);
+//        if (state == 0){
+//            tv_certified.setText("未认证");
+//        }else if (state == 1){
+//            tv_certified.setText("审核中");
+//        }else if (state ==2){
+//            tv_certified.setText("已认证");
+//        }else if (state == 3){
+//            tv_certified.setText("禁用");
+//        }
         btn_login = (Button) findViewById(R.id.btn_login);
     }
 

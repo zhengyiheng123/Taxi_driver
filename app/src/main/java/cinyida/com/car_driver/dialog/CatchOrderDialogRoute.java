@@ -148,7 +148,12 @@ public class CatchOrderDialogRoute extends DialogFragment implements View.OnClic
         Myutils.setTextColorOfPart(getActivity(),tv_end,R.color.tool_bar_color,0,3);
         tv_start.setText("出发地："+orderBean.getData().getStart_add());
         Myutils.setTextColorOfPart(getActivity(),tv_start,R.color.tool_bar_color,0,3);
-        rl_title.setText(Double.parseDouble(orderBean.getData().getDistance()) / 1000 + "公里");
+        if (Double.parseDouble(orderBean.getData().getDistance())<1000.00f){
+            rl_title.setText(Double.parseDouble(orderBean.getData().getDistance())+"米");
+        }else {
+            rl_title.setText(Double.parseDouble(orderBean.getData().getDistance()) / 1000 + "公里");
+        }
+
         TextView tv_see_map = (TextView) v.findViewById(R.id.tv_see_map);
         tv_see_map.setOnClickListener(this);
         ImageView iv_close = (ImageView) v.findViewById(R.id.iv_close);

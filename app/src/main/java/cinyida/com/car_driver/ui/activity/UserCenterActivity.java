@@ -1,13 +1,17 @@
 package cinyida.com.car_driver.ui.activity;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
@@ -20,9 +24,17 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amap.api.maps.model.LatLng;
 import com.bumptech.glide.Glide;
+import com.iflytek.cloud.ErrorCode;
+import com.iflytek.cloud.InitListener;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SpeechUtility;
+import com.iflytek.cloud.SynthesizerListener;
 
 import java.util.Set;
 import java.util.Timer;
@@ -31,7 +43,6 @@ import java.util.TimerTask;
 import cinyida.com.car_driver.R;
 import cinyida.com.car_driver.base.BaseActivity;
 import cinyida.com.car_driver.base.BaseArrayAdapter;
-import cinyida.com.car_driver.dialog.CatchOrderDialogFailed;
 import cinyida.com.car_driver.dialog.CatchOrderDialogRoute;
 import cinyida.com.car_driver.lib.LocationTask;
 import cinyida.com.car_driver.lib.OnLocationGetListener;
@@ -44,6 +55,9 @@ import cinyida.com.car_driver.ui.holder.AppointmentHolder;
 import cinyida.com.car_driver.ui.holder.Operating_Data_Holder;
 import cinyida.com.car_driver.ui.present.UsercenterPresent;
 import cinyida.com.car_driver.ui.view.UsercenterView;
+import cinyida.com.car_driver.utils.CoordinateUtil;
+import cinyida.com.car_driver.utils.Gps;
+import cinyida.com.car_driver.utils.PositionUtil;
 import cinyida.com.car_driver.utils.SharedPreferenceUtils;
 import cinyida.com.car_driver.utils.ToastUtils;
 import cinyida.com.car_driver.utils.common.PermissionManager;
@@ -80,8 +94,127 @@ public class UserCenterActivity extends BaseActivity implements UsercenterView, 
     private LatLng mPosition;
     private PowerManager powerManager;
     private PowerManager.WakeLock wakeLock;
+    //是否是第一次进入
+    private boolean isFirst=true;
     //是否可以返回刷新
     private boolean isResume;
+
+    //讯飞语音
+    private SpeechSynthesizer mTts;
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mTts != null)
+            mTts.stopSpeaking();
+    }
+
+    /**
+     * 初始化讯飞监听。
+     */
+    private InitListener mTtsInitListener = new InitListener() {
+        @Override
+        public void onInit(int code) {
+            Log.d("SHIXIN", "InitListener init() code = " + code);
+            if (code != ErrorCode.SUCCESS) {
+                Toast.makeText(context, "初始化失败,错误码：" + code, Toast.LENGTH_SHORT).show();
+                ;
+            } else {
+                // 初始化成功，之后可以调用startSpeaking方法
+                // 注：有的开发者在onCreate方法中创建完合成对象之后马上就调用startSpeaking进行合成，
+                // 正确的做法是将onCreate中的startSpeaking调用移至这里
+            }
+        }
+    };
+    /**
+     * 使用SpeechSynthesizer合成语音，不弹出合成Dialog.
+     *
+     * @param
+     */
+    public void startSpeaking(String playText) {
+        // 进行语音合成.
+        if (mTts != null)
+            mTts.startSpeaking(playText, new SynthesizerListener() {
+
+                @Override
+                public void onSpeakResumed() {
+                    // TODO Auto-generated method stub
+
+                }
+
+                @Override
+                public void onSpeakProgress(int arg0, int arg1, int arg2) {
+                    // TODO Auto-generated method stub
+
+                }
+
+                @Override
+                public void onSpeakPaused() {
+                    // TODO Auto-generated method stub
+
+                }
+
+                @Override
+                public void onSpeakBegin() {
+                    // TODO Auto-generated method stub
+
+                }
+
+                @Override
+                public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+                    // TODO Auto-generated method stub
+
+                }
+
+                @Override
+                public void onCompleted(SpeechError arg0) {
+                    // TODO Auto-generated method stub
+
+                }
+
+                @Override
+                public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+    }
+
+    public void init() {
+        String text = context.getString(R.string.app_id);
+        if ("57b3c4a9".equals(text)) {
+            throw new IllegalArgumentException("你不应该用Demo中默认KEY,去讯飞官网申请吧!");
+        }
+        SpeechUtility.createUtility(context, "appid=" + text);
+
+        // 初始化合成对象.
+        mTts = SpeechSynthesizer.createSynthesizer(context, mTtsInitListener);
+        initSpeechSynthesizer();
+    }
+    //设置讯飞语音参数
+    private void initSpeechSynthesizer() {
+        // 清空参数
+        mTts.setParameter(SpeechConstant.PARAMS, null);
+        mTts.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD);
+        // 设置在线合成发音人
+        mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan");
+        //设置合成语速
+        mTts.setParameter(SpeechConstant.SPEED, "50");
+        //设置合成音调
+        mTts.setParameter(SpeechConstant.PITCH, "50");
+        //设置合成音量
+        mTts.setParameter(SpeechConstant.VOLUME, "50");
+        //设置播放器音频流类型
+        mTts.setParameter(SpeechConstant.STREAM_TYPE, "3");
+        // 设置播放合成音频打断音乐播放，默认为true
+        mTts.setParameter(SpeechConstant.KEY_REQUEST_FOCUS, "true");
+        // 设置音频保存路径，保存音频格式支持pcm、wav，设置路径为sd卡请注意WRITE_EXTERNAL_STORAGE权限
+        // 注：AUDIO_FORMAT参数语记需要更新版本才能生效
+        mTts.setParameter(SpeechConstant.AUDIO_FORMAT, "wav");
+        mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, Environment.getExternalStorageDirectory() + "/msc/tts.wav");
+
+    }
 
     //单例对象
     public static UserCenterActivity instance=null;
@@ -166,6 +299,7 @@ public class UserCenterActivity extends BaseActivity implements UsercenterView, 
         swipe_refresh.setColorSchemeColors(getResources().getColor(R.color.tool_bar_color));
         swipe_refresh.setOnRefreshListener(this);
         onRefresh();
+        init();
     }
     //获取位置权限
     private void requirePermission() {
@@ -248,6 +382,7 @@ public class UserCenterActivity extends BaseActivity implements UsercenterView, 
         if (catchOrderDialog!=null){
             catchOrderDialog.closeDialog(getSupportFragmentManager());
         }
+        startSpeaking("您有新订单了");
         catchOrderDialog = new CatchOrderDialogRoute(orderBean);
         catchOrderDialog.show(getSupportFragmentManager(),"tag");
     }
@@ -274,6 +409,9 @@ public class UserCenterActivity extends BaseActivity implements UsercenterView, 
         if (mLocationTask!=null){
             mLocationTask.onDestroy();
         }
+        if (mTts != null) {
+            mTts.stopSpeaking();
+            mTts.destroy();}
     }
 
     @Override
@@ -556,10 +694,13 @@ public class UserCenterActivity extends BaseActivity implements UsercenterView, 
         public void onBackPressed() {
             exitApp(getApplicationContext());
         }
+    @TargetApi(Build.VERSION_CODES.N)
     @Override
     public void onLocationGet(PositionEntity entity) {
         mPosition = new LatLng(entity.latitue,entity.longitude);
 //        Log.e("zyh",mPosition.latitude+" ,"+mPosition.longitude);
+        LatLng latLng=CoordinateUtil.transformFromWGSToGCJ(new LatLng(mPosition.latitude,mPosition.longitude));
+        Gps gps=PositionUtil.gcj02_To_Bd09(mPosition.latitude,mPosition.longitude);
         present.sendPosition(mPosition.longitude+"",mPosition.latitude+"");
     }
 

@@ -54,8 +54,8 @@ public class CatchSettingPresent extends BasePresent {
     /**
      * 只听收车单
      */
-    public void onlyHome(final int type,String longitude,String latitude){
-        Observable<HttpResult> result=ServiceApi.getInstance().getServiceContract().onlyHome(type,longitude,latitude);
+    public void onlyHome(final int type){
+        Observable<HttpResult> result=ServiceApi.getInstance().getServiceContract().onlyHome(type);
         result.map(new ResultFilter())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

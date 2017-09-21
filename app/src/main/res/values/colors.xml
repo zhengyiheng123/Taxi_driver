@@ -361,5 +361,6 @@
     <color name="colorBlack">#535353</color>
     <color name="phone_bg">#f6f6f6</color>
     <color name="grey"> #ebebeb</color>
-
+    <color name="lightlightgrey">#F1F1F1</color>
+    <color name="lightgrey">#ECECEC</color>
 </resources>

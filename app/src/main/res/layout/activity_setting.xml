@@ -34,7 +34,7 @@
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="资料认证"
+                    android:text="认证资料及修改"
                     />
                 <TextView
                     android:id="@+id/tv_certified"
@@ -42,7 +42,7 @@
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="--"
+                    android:text=""
                     android:layout_marginRight="8dp"
                     />
                 <ImageView
@@ -216,8 +216,13 @@
             android:layout_height="wrap_content"
             android:text="其他"
             />
+        <TextView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="系统设置"
+            />
         <LinearLayout
-            android:visibility="gone"
             android:background="@drawable/shape_border_grey"
             android:orientation="vertical"
             android:layout_width="match_parent"

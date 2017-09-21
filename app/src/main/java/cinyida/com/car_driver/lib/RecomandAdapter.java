@@ -86,7 +86,7 @@ public class RecomandAdapter extends BaseAdapter {
 		TextView textView = null;
 		if (convertView == null) {
 			LayoutInflater inflater = LayoutInflater.from(mContext);
-			textView = (TextView) inflater.inflate(R.layout.item_bank,
+			textView = (TextView) inflater.inflate(R.layout.view_recommond,
 					null);
 		} else {
 			textView = (TextView) convertView;

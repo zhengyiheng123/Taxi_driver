@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 <include layout="@layout/include_toolbar"/>
     <RelativeLayout
+        android:id="@+id/version"
         android:background="@color/white"
         android:elevation="1dp"
         android:layout_below="@+id/fl_toolbar"
@@ -13,30 +14,61 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBarSize">
         <TextView
+            android:textColor="@color/material_grey_800"
             android:gravity="center_vertical"
-            android:textSize="17sp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/actionBarSize"
             android:text="版本"
             />
         <TextView
+            android:id="@+id/tv_version"
+            android:textColor="@color/material_grey_800"
             android:layout_alignParentRight="true"
             android:gravity="center_vertical"
             android:textSize="17sp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/actionBarSize"
-            android:text="1.0.1"
             />
     </RelativeLayout>
-
+    <LinearLayout
+        android:layout_below="@+id/version"
+        android:background="@color/white"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:textColor="@color/material_grey_800"
+            android:gravity="center_horizontal"
+            android:text="服务条款"
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/material_grey_800"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
     <TextView
+        android:textColor="@color/material_grey_800"
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="13dp"
-        android:layout_marginLeft="126dp"
+        android:layout_marginLeft="80dp"
         android:layout_marginStart="126dp"
-        android:text="联系我们"
+        android:text="联系我们："
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -47,8 +79,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="400-4920-8875"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_toRightOf="@+id/textView4"

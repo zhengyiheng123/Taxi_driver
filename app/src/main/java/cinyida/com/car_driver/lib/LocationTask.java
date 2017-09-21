@@ -81,7 +81,7 @@ public class LocationTask implements AMapLocationListener,
 		AMapLocationClientOption option=new AMapLocationClientOption();
 		option.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
 		option.setOnceLocation(false);
-		option.setInterval(10*1000);
+		option.setInterval(20*1000);
 		mLocationClient.setLocationOption(option);
 		mLocationClient.startLocation();
 

@@ -6,6 +6,7 @@
     >
     <include layout="@layout/include_toolbar"/>
     <EditText
+        android:id="@+id/et_suggestion"
         android:padding="8dp"
         android:hint="留下您的意见与建议"
         android:gravity="start"

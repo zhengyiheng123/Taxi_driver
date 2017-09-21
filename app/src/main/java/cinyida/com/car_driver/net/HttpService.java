@@ -10,6 +10,7 @@ package cinyida.com.car_driver.net;
 import java.util.List;
 import java.util.Map;
 
+import cinyida.com.car_driver.net.result.AboutUs;
 import cinyida.com.car_driver.net.result.AddBankBean;
 import cinyida.com.car_driver.net.result.Car_Records_Bean;
 import cinyida.com.car_driver.net.result.CatchOrderBean;
@@ -21,6 +22,7 @@ import cinyida.com.car_driver.net.result.Driver_Bean;
 import cinyida.com.car_driver.net.result.ForgetPassBean;
 import cinyida.com.car_driver.net.result.HelpBean;
 import cinyida.com.car_driver.net.result.HelperDetails;
+import cinyida.com.car_driver.net.result.HomeAddress;
 import cinyida.com.car_driver.net.result.HttpResult;
 import cinyida.com.car_driver.net.result.LoginResult;
 import cinyida.com.car_driver.net.result.MoneyResult;
@@ -233,7 +235,11 @@ public interface HttpService {
      */
     @FormUrlEncoded
     @POST("/driver/mode/closecar")
-    Observable<HttpResult<TargetAddBean>> addTarget(@Field("closecar")String closecar);
+    Observable<HttpResult<TargetAddBean>> addTarget(@Field("closecar")String closecar,@Field("longitude")String longitude,@Field("latitude")String latitude);
+
+    //获取收车地点
+    @POST("/driver/driver/check_close")
+    Observable<HttpResult<HomeAddress>> getHomeAddress();
     @FormUrlEncoded
     @POST("/driver/authentication/realtime")
     Observable<HttpResult> sendPosition(@Field("longitude")String longitude,@Field("latitude")String latitude);
@@ -265,7 +271,7 @@ public interface HttpService {
     @FormUrlEncoded
     @POST("/driver/mode/receiving")
 
-    Observable<HttpResult> onlyHome(@Field("type")int type,@Field("longitude")String longitude,@Field("latitude")String latitude);
+    Observable<HttpResult> onlyHome(@Field("type")int type);
     /**
      * 只听收车预约单
      */
@@ -365,4 +371,15 @@ public interface HttpService {
      */
     @POST("/driver/mode/distance")
     Observable<HttpResult> distance(@Query("distance")int distance);
+
+    /**
+     * 意见反馈
+     */
+    @POST("/driver/Question/feedback")
+    Observable<HttpResult> feedback(@Query("content")String content);
+    /**
+     * 关于我们
+     */
+    @POST("/Index/Our/aboutour")
+    Observable<HttpResult<AboutUs>> aboutUs();
 }

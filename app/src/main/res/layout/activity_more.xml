@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:drawableTop="@mipmap/ic_car_fee"
-            android:text="我的二维码"/>
+            android:text="收车费"/>
     </cinyida.com.car_driver.widget.HomeButtonView>
 
     <cinyida.com.car_driver.widget.HomeButtonView
